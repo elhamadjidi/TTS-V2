@@ -61,6 +61,7 @@ if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 0 ]; then
 #        id=${filename} | sed -e "s/\.[^\.]*$//g"
         id=$(basename ${filename} | sed -e "s/\.[^\.]*$//g")
         echo this is the id $id
+        echo this is the id $filename
         echo "${id} ${filename}" >> ${scp}
         echo "${id} CH" >> ${utt2spk}
     done
