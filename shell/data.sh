@@ -30,7 +30,7 @@ if [ -z "${CHILDREN}" ]; then
    exit 1
 fi
 db_root=${CHILDREN}
-echo this is $db_root
+#db_root = downloads
 
 train_set=tr_no_dev
 train_dev=dev
@@ -60,6 +60,7 @@ if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 0 ]; then
     find ${db_root}/CH-1.1 -follow -name "*.wav" | sort | while read -r filename;do
 #        id=${filename} | sed -e "s/\.[^\.]*$//g"
         id=$(basename ${filename} | sed -e "s/\.[^\.]*$//g")
+        echo this is the id $id
         echo "${id} ${filename}" >> ${scp}
         echo "${id} CH" >> ${utt2spk}
     done
