@@ -63,7 +63,7 @@ if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 0 ]; then
         echo this is the id $id #CH011-0009
         echo this is the filename $filename #downloads/CH-1.1/wavs/CH011-0009.wav
         echo "${id} ${filename}" >> ${scp}
-        echo "${id} CH" >> ${utt2spk}
+        echo "${id} ${id:0:5}" >> ${utt2spk}
     done
     utils/utt2spk_to_spk2utt.pl ${utt2spk} > ${spk2utt}
 
