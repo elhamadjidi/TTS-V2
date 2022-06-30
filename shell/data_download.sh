@@ -17,7 +17,7 @@ cwd=$(pwd)
 if [ ! -e "${download_dir}/CH-1.1" ]; then
     mkdir -p "${download_dir}"
     cd "${download_dir}"
-    wget https://github.com/elhamadjidi/TTS-D/raw/main/CH-1.1.tar.bz2
+    wget https://github.com/elhamadjidi/TTS-V2/raw/main/CH-1.1.tar.bz2
     tar -vxf ./*.tar.bz2
     rm ./*.tar.bz2
     cd "${cwd}"
