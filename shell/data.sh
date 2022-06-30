@@ -60,8 +60,8 @@ if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 0 ]; then
     find ${db_root}/CH-1.1 -follow -name "*.wav" | sort | while read -r filename;do
 #        id=${filename} | sed -e "s/\.[^\.]*$//g"
         id=$(basename ${filename} | sed -e "s/\.[^\.]*$//g")
-        echo this is the id $id
-        echo this is the filename $filename
+        echo this is the id $id #CH011-0009
+        echo this is the filename $filename #downloads/CH-1.1/wavs/CH011-0009.wav
         echo "${id} ${filename}" >> ${scp}
         echo "${id} CH" >> ${utt2spk}
     done
