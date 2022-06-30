@@ -30,6 +30,7 @@ if [ -z "${CHILDREN}" ]; then
    exit 1
 fi
 db_root=${CHILDREN}
+echo this is $db_root
 
 train_set=tr_no_dev
 train_dev=dev
@@ -57,8 +58,8 @@ if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 0 ]; then
 
     # make scp, utt2spk, and spk2utt
     find ${db_root}/CH-1.1 -follow -name "*.wav" | sort | while read -r filename;do
-        id=${filename} | sed -e "s/\.[^\.]*$//g"
-#        id=$(basename ${filename} | sed -e "s/\.[^\.]*$//g")
+#        id=${filename} | sed -e "s/\.[^\.]*$//g"
+        id=$(basename ${filename} | sed -e "s/\.[^\.]*$//g")
         echo "${id} ${filename}" >> ${scp}
         echo "${id} CH" >> ${utt2spk}
     done
