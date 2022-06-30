@@ -57,7 +57,7 @@ if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 0 ]; then
 
     # make scp, utt2spk, and spk2utt
     find ${db_root}/CH-1.1 -follow -name "*.wav" | sort | while read -r filename;do
-        id=$(${filename} | sed -e "s/\.[^\.]*$//g")
+        id=${filename} | sed -e "s/\.[^\.]*$//g"
 #        id=$(basename ${filename} | sed -e "s/\.[^\.]*$//g")
         echo "${id} ${filename}" >> ${scp}
         echo "${id} CH" >> ${utt2spk}
